@@ -6,11 +6,11 @@ namespace Rollercoaster
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to our Theme Park!");
+            Console.WriteLine("Welcome to our Theme Park!"); // Headline
             Console.WriteLine("Which attraction would you like to visit, the Rollercoaster or the Ferris Wheel?");
             Console.WriteLine("");
 
-            string Answer1 = Console.ReadLine();
+            string Answer1 = Console.ReadLine(); // Answer either Rollercoaster or Ferris Wheel, or the program will end
 
             switch (Answer1)
             {
@@ -90,8 +90,11 @@ namespace Rollercoaster
             }
             else if (Answer2 is "No")
             {
+                int exitCode = 1010;
                 Console.WriteLine("");
                 Console.WriteLine("Oh, that's sad");
+                System.Environment.Exit(exitCode);
+                
             }
             else
             {
