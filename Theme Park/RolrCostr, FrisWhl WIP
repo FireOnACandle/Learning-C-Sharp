@@ -6,8 +6,9 @@ namespace Rollercoaster
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to our Theme Park! Which attraction would you like to visit? \n" +
-                "the Rollercoaster or the Ferris wheel?");
+            Console.WriteLine("Welcome to our Theme Park!");
+            Console.WriteLine("Which attraction would you like to visit, the Rollercoaster or the Ferris Wheel?");
+            Console.WriteLine("");
 
             string Answer1 = Console.ReadLine();
 
@@ -33,11 +34,142 @@ namespace Rollercoaster
                     Console.WriteLine("Great! I'll show you where it is");
                     break;
 
+                case "ferris Wheel":
+                    Console.WriteLine("");
+                    Console.WriteLine("Great! I'll show you where it is");
+                    break;
+
                 case "ferris wheel":
                     Console.WriteLine("");
                     Console.WriteLine("Great! I'll show you where it is");
                     break;
+
+               default:
+                    Console.WriteLine("Oh, I'm sorry, that attraction isn't available at the moment");
+                    break;
             }
+            Console.WriteLine("");
+            Console.WriteLine("You follow the guide to the attraction of your choice");
+            Console.WriteLine("");
+
+                if (Answer1 is "Rollercoaster")
+                {
+                    Console.WriteLine("Here's our Rollercoaster! Would you like to take a ride?");
+                }
+                else if (Answer1 is "rollercoaster")
+                {
+                Console.WriteLine("Here's our Rollercoaster! Would you like to take a ride?");
+                }
+                else if (Answer1 is "Ferris Wheel")
+                {
+                    Console.WriteLine("This is our Ferris Wheel, would you like to take a ride?");
+                }
+                else if (Answer1 is "Ferris wheel")
+                {
+                    Console.WriteLine("This is our Ferris Wheel, would you like to take a ride?");
+                }
+                else if (Answer1 is "ferris Wheel")
+                {
+                    Console.WriteLine("This is our Ferris Wheel, would you like to take a ride?");
+                }
+                else if (Answer1 is "ferris wheel")
+                {
+                    Console.WriteLine("This is our Ferris Wheel, would you like to take a ride?");
+                }
+
+            Console.WriteLine("(Say Yes or No)");
+            Console.WriteLine("");
+            string Answer2 = Console.ReadLine(); // Answer to the "would you like to take a ride?" question
+
+            if (Answer2 is "Yes")
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Wonderful! Go right on then");
+            }
+            else if (Answer2 is "No")
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Oh, that's sad");
+            }
+            else
+            {
+                Console.WriteLine("What?");
+            }
+
+            Console.WriteLine("");
+
+            if (Answer1 is "Rollercoaster")
+            {
+                Console.WriteLine("You take a seat on the rollercoaster, and eagerly await the ride to start");
+            }
+
+            else if (Answer1 is "rollercoaster")
+            {
+                Console.WriteLine("You take a seat on the rollercoaster, and eagerly await the ride to start");
+            }
+            else if (Answer1 is "Ferris Wheel")
+            {
+                Console.WriteLine("You choose a cabin, take a seat and wait for the Ferris Wheel to start");
+            }
+            else if (Answer1 is "Ferris wheel")
+            {
+                Console.WriteLine("You choose a cabin, take a seat and wait for the Ferris Wheel to start");
+            }
+            else if (Answer1 is "ferris Wheel")
+            {
+                Console.WriteLine("You choose a cabin, take a seat and wait for the Ferris Wheel to start");
+            }
+            else if (Answer1 is "ferris wheel")
+            {
+                Console.WriteLine("You choose a cabin, take a seat and wait for the Ferris Wheel to start");
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("Finally, the ride starts");
+
+            int TimeforRolrcostr = 0;
+            int TimeforFrisWhel = 0;
+
+            if (Answer1 is "Rollercoaster")
+            {
+                do
+                {
+                    Console.WriteLine("\"Woohoo!\"");
+                    TimeforRolrcostr++;
+                }
+                while (TimeforRolrcostr <= 3); 
+            }
+            else if (Answer1 is "rollercoaster")
+            {
+                do
+                {
+                    Console.WriteLine("\"Woohoo!\"");
+                    TimeforRolrcostr++;
+                }
+                while (TimeforRolrcostr <= 3);
+            }
+            else
+            {
+                do
+                {
+                    Console.WriteLine("The Ferris Wheel spins around one time, and you have a beautiful view over the Theme Park");
+                    TimeforFrisWhel++;
+                }
+                while (TimeforFrisWhel <= 2);
+            }
+
+            if (Answer1 = "Ferris Wheel")
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Suddenly, the Ferris Wheel comes to a stop at the very highest point. \n You gaze at the 
+
+            }
+
+
+
+
+
+
         }
     }
 }
