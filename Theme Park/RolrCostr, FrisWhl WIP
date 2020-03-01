@@ -36,6 +36,7 @@ namespace Rollercoaster
                 case "ferris wheel":
                     Console.WriteLine("");
                     Console.WriteLine("Great! I'll show you where it is");
+                    break;
             }
         }
     }
