@@ -1,0 +1,42 @@
+using System;
+
+namespace Rollercoaster
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome to our Theme Park! Which attraction would you like to visit? \n" +
+                "the Rollercoaster or the Ferris wheel?");
+
+            string Answer1 = Console.ReadLine();
+
+            switch (Answer1)
+            {
+                case "Rollercoaster":
+                    Console.WriteLine("");
+                    Console.WriteLine("Wonderful choice! Come along then");
+                    break;
+
+                case "rollercoaster":
+                    Console.WriteLine("");
+                    Console.WriteLine("Wonderful choice! Come along then");
+                    break;
+
+                case "Ferris Wheel":
+                    Console.WriteLine("");
+                    Console.WriteLine("Great! I'll show you where it is");
+                    break;
+
+                case "Ferris wheel":
+                    Console.WriteLine("");
+                    Console.WriteLine("Great! I'll show you where it is");
+                    break;
+
+                case "ferris wheel":
+                    Console.WriteLine("");
+                    Console.WriteLine("Great! I'll show you where it is");
+            }
+        }
+    }
+}
