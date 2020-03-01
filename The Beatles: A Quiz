@@ -1,0 +1,137 @@
+using System;
+
+namespace BeatlesQuiz
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("THE BEATLES: A QUIZ");  // Headline
+            Console.WriteLine("");
+            Console.WriteLine("Hello there! Before taking part at this quiz, could you please enter your name?"); // Entering a Username
+            string userName = Console.ReadLine();
+            Console.WriteLine("");
+            Console.WriteLine("Why hello there " + userName + "! Have fun!");
+            Console.WriteLine("");
+
+            string FirstBeatle = "John";
+            string SecondBeatle = "Paul";
+            string ThirdBeatle = "George";
+            string FourthBeatle = "Ringo";
+
+            Console.WriteLine("Only two former Beatles members are still alive today, which?"); // First Question
+            Console.WriteLine("John Lennon: 1");
+            Console.WriteLine("Paul Mccartney: 2");
+            Console.WriteLine("George Harrison: 3");
+            Console.WriteLine("Ringo Starr: 4");
+
+            Console.WriteLine("");
+
+            Console.WriteLine("Enter the corresponding numbers:");
+            int Answer1 = Convert.ToInt32(Console.ReadLine()); 
+            int Answer2 = Convert.ToInt32(Console.ReadLine());
+            int AnswerSum1 = Answer1 + Answer2; // Adding the two answers together will result in the AnswerSum
+
+            if (AnswerSum1 == 6) // If the AnswerSum is 6...
+            {
+               Console.WriteLine("Correct!"); //..then the console will print that the answer is correct
+            }
+            else
+            {
+               Console.WriteLine("That's not correct, only Paul and Ringo are still alive to this day"); /*..otherwise it will print 
+                                                                                                         that the answer is wrong */
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("Second Question!");
+            Console.WriteLine("");
+            Console.WriteLine("Which member of the Beatles wrote the song \"Octopus's Garden\"?"); // Second Question
+            Console.WriteLine("");
+            Console.WriteLine("John Lennon: 1 ");
+            Console.WriteLine("Paul Mccartney: 2");
+            Console.WriteLine("George Harrison: 3");
+            Console.WriteLine("Ringo Starr: 4");
+
+            int Answer3 = Convert.ToInt32(Console.ReadLine());  
+            int AnswerSum2 = Answer3;
+
+
+           if (AnswerSum2 == 4) // 
+           {
+                Console.WriteLine("Correct!"); 
+           }
+            else
+            {
+                Console.WriteLine("That's not correct, it was Ringo Starr who wrote the song \"Octopus's Garden\"");
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("Alright, third question!");
+            Console.WriteLine("");
+            Console.WriteLine("Which Beatles album was the most succesful?"); // Third Question
+            Console.WriteLine("The White Album: 1");
+            Console.WriteLine("1 : 2");
+            Console.WriteLine("Rubber Soul: 3");
+            Console.WriteLine("Abbey Road: 4");
+
+            int Answer4 = Convert.ToInt32(Console.ReadLine());
+            int AnswerSum3 = Answer4;
+
+            if (AnswerSum3 == 1)
+            {
+                Console.WriteLine("Correct, with over 24 million copies sold, it is the most succesful album of the Beatles");
+            }
+            else
+            {
+                Console.WriteLine("Wrong, The White Album (with over 24 million copies sold) is the most succesful album of the Beatles");
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("Okay, fourth question!");
+            Console.WriteLine("");
+            Console.WriteLine("What is the name of John Lennon's last Wife?"); // Fourth Question
+            Console.WriteLine("");
+            Console.WriteLine("Nancy Shevell: 1");
+            Console.WriteLine("Barbara Bach: 2");
+            Console.WriteLine("Yoko Ono: 3");
+            Console.WriteLine("Kyoko Chan Cox: 4");
+
+            int Answer5 = Convert.ToInt32(Console.ReadLine());
+            int AnswerSum4 = Answer5;
+
+            if (AnswerSum4 == 3)
+            {
+                Console.WriteLine("Correct! Fun Fact: Yoko Ono has not remarried since John Lennon deceased");
+            }
+            else
+            {
+                Console.WriteLine("Wrong, Yoko Ono was John Lennon's last wife");
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("Alright, last question");
+            Console.WriteLine("");
+            Console.WriteLine("What was the last song the Beatles ever recorded?"); //Fifth and last Question
+            Console.WriteLine("");
+            Console.WriteLine("The End: 1");
+            Console.WriteLine("Come Together: 2");
+            Console.WriteLine("Paperback Writer: 3");
+            Console.WriteLine("Hey Jude: 4");
+
+            int Answer6 = Convert.ToInt32(Console.ReadLine());
+            int AnswerSum5 = Answer6;
+
+            if (AnswerSum5 == 1)
+            {
+                Console.WriteLine("Correct! The End was the last song recorded collectively by all four Beatles in their 1969 Album \n Abbey Road");
+            }
+            else
+            {
+                Console.WriteLine("Wrong, The End was the last song recorded collectively by all four Beatles");
+            }
+            Console.WriteLine("");
+            Console.WriteLine("That was it for this Quiz about The Beatles! I hope you enjoyed"); // End of the Quiz
+            Console.WriteLine("by www.github.com/FireOnACandle"); // Credit 
+           }
+    }
+}
