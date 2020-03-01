@@ -46,6 +46,8 @@ namespace Rollercoaster
 
                default:
                     Console.WriteLine("Oh, I'm sorry, that attraction isn't available at the moment");
+                    int exitCode1 = 102;
+                    System.Environment.Exit(exitCode1);
                     break;
             }
             Console.WriteLine("");
@@ -93,7 +95,9 @@ namespace Rollercoaster
             }
             else
             {
+                int exitCode = 101;
                 Console.WriteLine("What?");
+                System.Environment.Exit(exitCode);
             }
 
             Console.WriteLine("");
@@ -152,19 +156,45 @@ namespace Rollercoaster
             {
                 do
                 {
-                    Console.WriteLine("The Ferris Wheel spins around one time, and you have a beautiful view over the Theme Park");
+                    Console.WriteLine("The Ferris Wheel spins around one time, and you look out of the window");
                     TimeforFrisWhel++;
                 }
                 while (TimeforFrisWhel <= 2);
             }
 
-            if (Answer1 = "Ferris Wheel")
+            if (Answer1 is "Ferris Wheel")
             {
                 Console.WriteLine("");
-                Console.WriteLine("Suddenly, the Ferris Wheel comes to a stop at the very highest point. \n You gaze at the 
-
+                Console.WriteLine("Suddenly, the Ferris Wheel comes to a stop at the very highest point. \n" +
+             "You gaze at the beautiful night sky, and the Theme Park that is being illuminated by all of the coloured lights.");
+                Console.WriteLine("Then, the Ferris Wheel keeps spinning. You take a deep breath and say goodbye to that amazing view");
+            }
+            else if (Answer1 is "Ferris wheel")
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Suddenly, the Ferris Wheel comes to a stop at the very highest point. \n" +
+             "You gaze at the beautiful night sky, and the Theme Park that is being illuminated by all of the coloured lights.");
+                Console.WriteLine("Then, the Ferris Wheel keeps spinning. You take a deep breath and say goodbye to that amazing view");
+            }
+            else if (Answer1 is "ferris Wheel")
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Suddenly, the Ferris Wheel comes to a stop at the very highest point. \n" +
+             "You gaze at the beautiful night sky, and the Theme Park that is being illuminated by all of the coloured lights.");
+                Console.WriteLine("Then, the Ferris Wheel keeps spinning. You take a deep breath and say goodbye to that amazing view");
+            }
+            else if (Answer1 is "ferris wheel")
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Suddenly, the Ferris Wheel comes to a stop at the very highest point. \n" +
+             "You gaze at the beautiful night sky, and the Theme Park that is being illuminated by all of the coloured lights.");
+                Console.WriteLine("Then, the Ferris Wheel keeps spinning. You take a deep breath and say goodbye to that amazing view");
             }
 
+            Console.WriteLine("");
+            Console.WriteLine("The ride ends, and the attraction comes to a stop. You exit and leave the Theme Park.");
+            Console.WriteLine("");
+            Console.WriteLine("Today was a good day.");
 
 
 
