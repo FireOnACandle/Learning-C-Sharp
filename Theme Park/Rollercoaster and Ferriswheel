@@ -198,11 +198,8 @@ namespace Rollercoaster
             Console.WriteLine("The ride ends, and the attraction comes to a stop. You exit and leave the Theme Park.");
             Console.WriteLine("");
             Console.WriteLine("Today was a good day.");
-
-
-
-
-
+            Console.WriteLine("");
+            Console.WriteLine("Created by www.github.com/FireOnACandle");
         }
     }
 }
