@@ -1,0 +1,49 @@
+using System;
+
+namespace IfElse
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("THE BEATLES: A QUIZ");  // Quiz Headline
+            Console.WriteLine("");
+            Console.WriteLine("Hello there! Before taking part at this quiz, could you please enter your name?");
+            string userName = Console.ReadLine();
+            Console.WriteLine("");
+            Console.WriteLine("Why hello there " + userName + "! Have fun!");
+            Console.WriteLine("");
+
+            string FirstBeatle = "John";
+            string SecondBeatle = "Paul";
+            string ThirdBeatle = "George";
+            string FourthBeatle = "Ringo";
+
+            Console.WriteLine("Only two former Beatles members are still alive today, which?");
+            Console.WriteLine("John Lennon: 1");
+            Console.WriteLine("Paul Mccartney: 2");
+            Console.WriteLine("George Harrison: 3");
+            Console.WriteLine("Ringo Starr: 4");
+
+            int JohnL = 1;
+            int PaulM = 2;
+            int GeorgeH = 3;
+            int RingoS = 4;
+
+            Console.WriteLine("");
+
+            int Answer1 = Convert.ToInt32(Console.ReadLine());
+            int Answer2 = Convert.ToInt32(Console.ReadLine());
+            int AnswerSum1 = Answer1 + Answer2;
+
+            if (AnswerSum1 == 6)
+                {
+                Console.WriteLine("Correct!");
+            }
+            else
+            {
+                Console.WriteLine("That's not correct");
+                    }
+        }
+    }
+}
