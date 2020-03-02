@@ -25,11 +25,34 @@ namespace Story
              Console.WriteLine("");
 
             }
+            public static void ChoosePlayerCharacterFemale()
+        {
+            string PlayerCharacterFemale = Console.ReadLine();
+            
+            switch (PlayerCharacterFemale)
+            {
+                case "Kimberly":
+                    Console.WriteLine("");
+                    Console.WriteLine("This is Kimberly. \n");
+                    break;
+
+                case "Anna":
+                    Console.WriteLine("");
+                    Console.WriteLine("This is Anna. \n");
+                    break;
+
+                case "Laura":
+                    Console.WriteLine("");
+                    Console.WriteLine("This is Laura. \n");
+                    break;
+            }
+        }
             public static void MaleCharacters(string Paul, string Mark, string Tom)
         {
             Console.WriteLine("");
             Console.WriteLine("Choose one of these characters to play as:");
 
+            Console.WriteLine("");
             Console.WriteLine(Paul);
             Console.WriteLine("");
             Console.WriteLine(Mark);
@@ -37,25 +60,46 @@ namespace Story
             Console.WriteLine(Tom);
             Console.WriteLine("");
         }
+            public static void ChoosePlayerCharacterMale()
+            {
+            string PlayerCharacterMale = Console.ReadLine();
 
-        static void Main(string[] args)
-        {
-            ChoosingGender("Male", "Female");
-            string PlayerGender = Console.ReadLine();
-            string PlayerCharacterMale;
-            string PlayerCharacterFemale;
+            switch (PlayerCharacterMale)
+            {
+                case "Paul":
+                    Console.WriteLine("");
+                    Console.WriteLine("This is Paul. \n");
+                    break;
 
-            if (PlayerGender is "Male")
+                case "Mark":
+                    Console.WriteLine("");
+                    Console.WriteLine("This is Mark. \n");
+                    break;
+
+                case "Tim":
+                    Console.WriteLine("");
+                    Console.WriteLine("This is Tom. \n");
+                    break;
+            }
+                
+            }
+
+            public static void Main(string[] args)
+            {
+                 ChoosingGender("Male", "Female");
+                 string PlayerGender = Console.ReadLine();
+
+                if (PlayerGender is "Male")
             {
                 MaleCharacters("Paul", "Mark", "Tom");
-                PlayerCharacterMale = Console.ReadLine();
+                ChoosePlayerCharacterMale();
             }
-            else if (PlayerGender is "Female")
+                else if (PlayerGender is "Female")
             {
                 FemaleCharacters("Kimberly", "Anna", "Laura");
-                PlayerCharacterFemale = Console.ReadLine();
+                ChoosePlayerCharacterFemale();
+            }
+
             }
         }
-        }
     }
-
