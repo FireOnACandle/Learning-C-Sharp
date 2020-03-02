@@ -4,6 +4,10 @@ namespace Story
 {
         public class Program
         {
+            public static void BREAK()
+        {
+            Console.WriteLine("-----------");
+        }
             public static void ChoosingGender(string Male, string Female)
         {
             Console.WriteLine("");
@@ -47,6 +51,10 @@ namespace Story
                     break;
             }
         }
+            public static void FemaleCharacterAttributes()
+        {
+            BREAK();
+        }
             public static void MaleCharacters(string Paul, string Mark, string Tom)
         {
             Console.WriteLine("");
@@ -81,6 +89,7 @@ namespace Story
                     Console.WriteLine("This is Tom. \n");
                     break;
             }
+            BREAK();
                 
             }
 
@@ -92,14 +101,18 @@ namespace Story
                 if (PlayerGender is "Male")
             {
                 MaleCharacters("Paul", "Mark", "Tom");
+                BREAK();
                 ChoosePlayerCharacterMale();
             }
                 else if (PlayerGender is "Female")
             {
                 FemaleCharacters("Kimberly", "Anna", "Laura");
+                BREAK();
                 ChoosePlayerCharacterFemale();
+                FemaleCharacterAttributes();
             }
 
             }
         }
     }
+
