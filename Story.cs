@@ -1,20 +1,26 @@
 using System;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Story
 {
     public class Program
     {
+
         public static string PlayerGender;
         public static string PlayerCharacter;
         public static string You;
         public static double Time;
         public static string O_Clock = " o'clock";
-        public static string FullTime = Time + O_Clock;
+        public static string FullTime;
         public static string Decision1;
         public static int Decision2;
+        public static string[] Fridge;
+        public static string Eat;
         public static int Hunger;
         public static double Money;
-        public static string Stats = "Stats:\nYour hunger is at: " + Hunger + "\nYou have " + Money + " dollars\nIt's " + FullTime;
 
         public static void BREAK()
         {
@@ -228,20 +234,21 @@ namespace Story
         }
         public static void DayOne()
         {
-            Time = 7.00;
-            if (Time >= 12.00)
+            Console.Clear();
+            Time = 7.00D;
+            if (Time >= 12.00D)
             {
                 Console.WriteLine("It's noon!");
             }
-            else if (Time >= 15.00)
+            else if (Time >= 15.00D)
             {
                 Console.WriteLine("It's afternoon!");
             }
-            else if (Time >= 19.00)
+            else if (Time >= 19.00D)
             {
                 Console.WriteLine("It's evening");
             }
-
+            FullTime = Time + "o'clock";
             Hunger = 2;
             if (Hunger == 1)
             {
@@ -251,11 +258,10 @@ namespace Story
             {
                 Console.WriteLine("You're going to starve if you don't get something to eat soon");
             }
-
             Money = 20;
-            You = PlayerCharacter; 
+            You = PlayerCharacter;
+            string Stats = "Stats:\nYour hunger is at: " + Hunger + "\nYou have " + Money + " dollars\nIt's " + FullTime;
 
-            Console.Clear();
             BREAK();
             Console.WriteLine(You + " wakes up in his bed at " + Time + " AM " + ", feeling hungry");
             BREAK();
@@ -270,14 +276,49 @@ namespace Story
             Decision2 = Convert.ToInt32(Console.ReadLine());
             if (Decision2 == 1)
             {
-                Console.WriteLine("You go downstairs and check your fridge, it contains: "
+                Console.WriteLine("You go downstairs and check your fridge, it contains: ");
+                FridgeM();
             }
         }
-        public static void Fridge(string[] Fridge)
+        public static void FridgeM()
         {
             if (PlayerCharacter is "Paul")
             {
-                Fridge({"Pizza", "",  "");
+                Fridge = new string[] {"Pizza (Restores 3 + 1 Hunger, requires 30 minutes to cook)", "Apple (Restores 1 Hunger), requires 5 minutes to eat)", "Bread (Restores 2 Hunger, requires 10 minutes to eat)"};
+                foreach (string food in Fridge)
+                {
+                    Console.WriteLine(food);
+                }
+                Console.WriteLine("");
+                Console.WriteLine("What do you want to eat?");
+                Eat = Console.ReadLine();
+                if (Eat is "Pizza")
+                {
+                    Fridge[0] = null;
+                    Hunger = Hunger + 3;
+                    Time = Time + 0.30D;
+                    Console.WriteLine();
+                    Console.WriteLine("You ate the Pizza.");
+                    Console.WriteLine();
+                    Console.WriteLine(Time);
+                    Console.WriteLine(Fridge);
+                }
+            }
+            else if (PlayerCharacter is "Mark")
+            {
+                Fridge = new string[] { "Sourpatch Ice Cream (Restores 3 + 1 Hunger", "Green Apple (Restores 1 + 1 Hunger)", "Bar of Chocolate (Restores 1 Hunger)" };
+                foreach (string food in Fridge)
+                {
+                    Console.WriteLine(food);
+                }
+            }
+            else if (PlayerCharacter is "Tim")
+            {
+                Fridge = new string[] { "Chocolate Pudding (Restores 1 + 1 Hunger", "Red Apple (Restores 1 + 1 Hunger)" };
+                foreach (string food in Fridge)
+                {
+                    Console.WriteLine(food);
+                }
             }
         }
 
