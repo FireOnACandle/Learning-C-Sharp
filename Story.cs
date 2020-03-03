@@ -215,7 +215,6 @@ namespace Story
                     PlayerCharacterMale();
                     break;
             }
-
         }
 
         public static void Main(string[] args)
