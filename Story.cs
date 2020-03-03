@@ -6,8 +6,15 @@ namespace Story
     {
         public static string PlayerGender;
         public static string PlayerCharacter;
+        public static string You;
+        public static double Time;
+        public static string O_Clock = " o'clock";
+        public static string FullTime = Time + O_Clock;
         public static string Decision1;
-        public static string Hunger;
+        public static int Decision2;
+        public static int Hunger;
+        public static double Money;
+        public static string Stats = "Stats:\nYour hunger is at: " + Hunger + "\nYou have " + Money + " dollars\nIt's " + FullTime;
 
         public static void BREAK()
         {
@@ -23,17 +30,15 @@ namespace Story
 
             if (PlayerGender is "Male")
             {
+                BREAK();
                 MaleCharacters();
-                BREAK();
                 PlayerCharacterMale();
-                BREAK();
             }
             else if (PlayerGender is "Female")
             {
+                BREAK();
                 FemaleCharacters();
-                BREAK();
                 PlayerCharacterFemale();
-                BREAK();
             }
             else
             {
@@ -133,6 +138,7 @@ namespace Story
         {
             Console.WriteLine("If you want to go back, type: back");
             PlayerCharacter = Console.ReadLine();
+            BREAK();
 
             switch (PlayerCharacter)
             {
@@ -165,6 +171,7 @@ namespace Story
                     PlayerCharacterFemale();
                     break;
             }
+            BREAK();
         }
         public static void MaleCharacters(string Paul = "Paul", string Mark = "Mark", string Tom = "Tom")
         {
@@ -183,6 +190,7 @@ namespace Story
         {
             Console.WriteLine("If you want to go back, type: back");
             PlayerCharacter = Console.ReadLine();
+            BREAK();
 
             switch (PlayerCharacter)
             {
@@ -215,11 +223,68 @@ namespace Story
                     PlayerCharacterMale();
                     break;
             }
+            BREAK();
+
+        }
+        public static void DayOne()
+        {
+            Time = 7.00;
+            if (Time >= 12.00)
+            {
+                Console.WriteLine("It's noon!");
+            }
+            else if (Time >= 15.00)
+            {
+                Console.WriteLine("It's afternoon!");
+            }
+            else if (Time >= 19.00)
+            {
+                Console.WriteLine("It's evening");
+            }
+
+            Hunger = 2;
+            if (Hunger == 1)
+            {
+                Console.WriteLine("Get something to eat!");
+            }
+            else if (Hunger == 0)
+            {
+                Console.WriteLine("You're going to starve if you don't get something to eat soon");
+            }
+
+            Money = 20;
+            You = PlayerCharacter; 
+
+            Console.Clear();
+            BREAK();
+            Console.WriteLine(You + " wakes up in his bed at " + Time + " AM " + ", feeling hungry");
+            BREAK();
+            Console.WriteLine(Stats);
+            BREAK();
+            Console.WriteLine("What would you like to do?");
+            Console.WriteLine("");
+            Console.WriteLine("type 1 to: Go downstairs and check your fridge for something to eat (requires 5 minutes)");
+            Console.WriteLine("type 2 to: Check your stats");
+            Console.WriteLine("");
+
+            Decision2 = Convert.ToInt32(Console.ReadLine());
+            if (Decision2 == 1)
+            {
+                Console.WriteLine("You go downstairs and check your fridge, it contains: "
+            }
+        }
+        public static void Fridge(string[] Fridge)
+        {
+            if (PlayerCharacter is "Paul")
+            {
+                Fridge({"Pizza", "",  "");
+            }
         }
 
         public static void Main(string[] args)
         {
             ChoosingCharacter();
+            DayOne();
         }
     }
 }
