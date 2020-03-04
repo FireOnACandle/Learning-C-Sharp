@@ -18,6 +18,7 @@ namespace Story
         public static string Decision1;
         public static int Decision2;
         public static List<string> Fridge = new List<string>();
+        public static string Pizza = "Pizza (Restores 3 Hunger (requires 30 minutes)", Bread = "Restores 2 Hunger (requires 15 minutes)", RedApple = "Restores 1 Hunger (requires 5 minutes)", GreenApple = "Restores 1 Hunger (requires 5 minutes)", SourpatchIceCream = "Restores 2 Hunger (requires 10 minutes)", Chocolate = "Restores 1 Hunger (requires 5 minutes)", Pineapple = "Restores 2 Hunger (requires 15 minutes)", Starfruit = "Restores 1 Hunger (requires 15 minutes)", Fries = "Restores 2 Hunger (requires 25 minutes";
         public static string Eat;
         public static int Hunger;
         public static double Money;
@@ -126,6 +127,20 @@ namespace Story
                 Decision1SITUATIONAL();
             }
         }
+        public static void Decision2M()
+        {
+            Decision2 = Convert.ToInt32(Console.ReadLine());
+            if (Decision2 == 1)
+            {
+                Console.WriteLine("Five minutes pass");
+                Console.WriteLine("You go downstairs and check your fridge, it contains: ");
+                FridgeDayOne();
+            }
+            else if (Decision2 == 2)
+            {
+                Console.WriteLine(Stats);
+            }
+        }
 
         public static void FemaleCharacters(string Kimberly = "Kimberly", string Anna = "Anna", string Laura = "Laura")
         {
@@ -150,14 +165,14 @@ namespace Story
             {
                 case "Kimberly":
                     Console.WriteLine("");
-                    Console.WriteLine("This is Kimberly.\nShe's a rather cheerful girl.\nHer likes consist of:\nSpending time with her friends\nSweet foods\nTheme Parks");
+                    Console.WriteLine("This is Kimberly.\nShe's a rather cheerful girl.\nHer likes consist of:\nSpending time with her friends\nSweet food\nTheme Parks");
                     Console.WriteLine("");
                     Console.WriteLine("Would you like to play as Kimberly? (type Yes or No)");
                     break;
 
                 case "Anna":
                     Console.WriteLine("");
-                    Console.WriteLine("This is Anna.\nShe's a rather shy girl.\nHer likes consist of:\nSpending time with her friend Emily\nPizza\nListening to music");
+                    Console.WriteLine("This is Anna.\nShe's a rather shy girl.\nHer likes consist of:\nSpending time with her friend Emily\nJunk food\nListening to music");
                     Console.WriteLine("");
                     Console.WriteLine("Would you like to play as Anna? (type Yes or No)");
                     break;
@@ -276,18 +291,59 @@ namespace Story
             Decision2 = Convert.ToInt32(Console.ReadLine());
             if (Decision2 == 1)
             {
+                Console.WriteLine("Five minutes pass");
                 Console.WriteLine("You go downstairs and check your fridge, it contains: ");
-                FridgeM();
+                FridgeDayOne();
+            }
+            else if (Decision2 == 2)
+            {
+                Console.WriteLine(Stats);
             }
         }
-        public static void FridgeM()
+        public static void Food()
+        {
+            switch (PlayerCharacter)
+            {
+                case "Paul":
+                    Pizza = "Pizza (Restores 3 + 1 Hunger, requires 30 minutes)";
+                    Fries = "Fries (Restores 2 + 1 Hunger, requires 20 minutes)";
+                    break;
+
+                case "Mark":
+                    SourpatchIceCream = "Sourpatch Ice Cream (Restores 2 + 1 Hunger, requires 15 minutes)";
+                    GreenApple = "Green Apple (Restores 1 + 1 Hunger, requires 5 minutes)";
+                    break;
+
+                case "Tom":
+                    Chocolate = "Chocolate (Restores 1 + 1 Hunger, requires 5 minutes)";
+                    RedApple = "Red Apple (Restores 1 + 1 Hunger, requires 5 minutes)";
+                    break;
+
+                case "Kimberly":
+                    Chocolate = "Chocolate (Restores 1 + 1 Hunger, requires 5 minutes)";
+                    RedApple = "Red Apple (Restores 1 + 1 Hunger, requires 5 minutes)";
+                    break;
+
+                case "Laura":
+                    Pizza = "Pizza (Restores 3 + 1 Hunger, requires 30 minutes)";
+                    Fries = "Fries (Restores 2 + 1 Hunger, requires 20 minutes)";
+                    break;
+
+                case "Anna":
+                    Starfruit = "Starfruit (Restores 1 + 1 Hunger, requires 10 minutes)";
+                    Pineapple = "Pineapple (Restores 2 + 1 Hunger, requires 15 minutes)";
+                    break;
+            }
+        }
+        public static void FridgeDayOne()
         {
             Time = Time + 0.05;
+            Food();
             if (PlayerCharacter is "Paul")
             {
-                Fridge.Add("Pizza (Restores 3 + 1 Hunger, requires 30 minutes)");
-                Fridge.Add("Red Apple (Restores 1 Hunger, requires 5 minutes)");
-                Fridge.Add("Bread (Restores 2 Hunger requires 15 minutes)");
+                Fridge.Add(Pizza);
+                Fridge.Add(RedApple);
+                Fridge.Add(Bread);
                 foreach (string food in Fridge)
                 {
                     Console.WriteLine(food);
@@ -297,7 +353,7 @@ namespace Story
                 Eat = Console.ReadLine();
                 if (Eat is "Pizza")
                 {
-                    Fridge.Remove("Pizza (Restores 3 + 1 Hunger, requires 30 minutes)");
+                    Fridge.Remove(Pizza);
                     Hunger = Hunger + 4;
                     Time = Time + 0.30D;
                     Console.WriteLine("");
@@ -305,7 +361,7 @@ namespace Story
                 }
                 else if (Eat is "Bread")
                 {
-                    Fridge.Remove("Bread (Restores 2 Hunger, requires 15 minutes)");
+                    Fridge.Remove(Bread);
                     Hunger = Hunger + 2;
                     Time = Time + 0.15D;
                     Console.WriteLine("");
@@ -313,16 +369,22 @@ namespace Story
                 }
                 else if (Eat is "Red Apple")
                 {
-                    Fridge.Remove("Red Apple (Restores 1 Hunger, requires 5 minutes)");
+                    Fridge.Remove(RedApple);
                     Hunger = Hunger + 1;
                     Time = Time + 0.05D;
                     Console.WriteLine("");
                     Console.WriteLine("You ate the Apple.");
                 }
+                Console.WriteLine(Time);
+                Console.WriteLine();
+                foreach (string food in Fridge)
+                {
+                    Console.WriteLine(food);
+                }
             }
             else if (PlayerCharacter is "Mark")
             {
-                Fridge.Add("Sourpatch Ice Cream");
+                Fridge.Add(SourpatchIceCream);
                 foreach (string food in Fridge)
                 {
                     Console.WriteLine(food);
@@ -330,7 +392,7 @@ namespace Story
             }
             else if (PlayerCharacter is "Tim")
             {
-                Fridge.Add("Red Apple");
+                Fridge.Add(RedApple);
                 foreach (string food in Fridge)
                 {
                     Console.WriteLine(food);
