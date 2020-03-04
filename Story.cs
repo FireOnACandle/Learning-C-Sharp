@@ -17,7 +17,7 @@ namespace Story
         public static string FullTime;
         public static string Decision1;
         public static int Decision2;
-        public static string[] Fridge;
+        public static List<string> Fridge = new List<string>();
         public static string Eat;
         public static int Hunger;
         public static double Money;
@@ -282,9 +282,12 @@ namespace Story
         }
         public static void FridgeM()
         {
+            Time = Time + 0.05;
             if (PlayerCharacter is "Paul")
             {
-                Fridge = new string[] {"Pizza (Restores 3 + 1 Hunger, requires 30 minutes to cook)", "Apple (Restores 1 Hunger), requires 5 minutes to eat)", "Bread (Restores 2 Hunger, requires 10 minutes to eat)"};
+                Fridge.Add("Pizza (Restores 3 + 1 Hunger, requires 30 minutes)");
+                Fridge.Add("Red Apple (Restores 1 Hunger, requires 5 minutes)");
+                Fridge.Add("Bread (Restores 2 Hunger requires 15 minutes)");
                 foreach (string food in Fridge)
                 {
                     Console.WriteLine(food);
@@ -294,19 +297,32 @@ namespace Story
                 Eat = Console.ReadLine();
                 if (Eat is "Pizza")
                 {
-                    Fridge[0] = null;
-                    Hunger = Hunger + 3;
+                    Fridge.Remove("Pizza (Restores 3 + 1 Hunger, requires 30 minutes)");
+                    Hunger = Hunger + 4;
                     Time = Time + 0.30D;
-                    Console.WriteLine();
+                    Console.WriteLine("");
                     Console.WriteLine("You ate the Pizza.");
-                    Console.WriteLine();
-                    Console.WriteLine(Time);
-                    Console.WriteLine(Fridge);
+                }
+                else if (Eat is "Bread")
+                {
+                    Fridge.Remove("Bread (Restores 2 Hunger, requires 15 minutes)");
+                    Hunger = Hunger + 2;
+                    Time = Time + 0.15D;
+                    Console.WriteLine("");
+                    Console.WriteLine("You ate the Bread.");
+                }
+                else if (Eat is "Red Apple")
+                {
+                    Fridge.Remove("Red Apple (Restores 1 Hunger, requires 5 minutes)");
+                    Hunger = Hunger + 1;
+                    Time = Time + 0.05D;
+                    Console.WriteLine("");
+                    Console.WriteLine("You ate the Apple.");
                 }
             }
             else if (PlayerCharacter is "Mark")
             {
-                Fridge = new string[] { "Sourpatch Ice Cream (Restores 3 + 1 Hunger", "Green Apple (Restores 1 + 1 Hunger)", "Bar of Chocolate (Restores 1 Hunger)" };
+                Fridge.Add("Sourpatch Ice Cream");
                 foreach (string food in Fridge)
                 {
                     Console.WriteLine(food);
@@ -314,7 +330,7 @@ namespace Story
             }
             else if (PlayerCharacter is "Tim")
             {
-                Fridge = new string[] { "Chocolate Pudding (Restores 1 + 1 Hunger", "Red Apple (Restores 1 + 1 Hunger)" };
+                Fridge.Add("Red Apple");
                 foreach (string food in Fridge)
                 {
                     Console.WriteLine(food);
