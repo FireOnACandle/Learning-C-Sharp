@@ -12,6 +12,7 @@ namespace Story
         public static string PlayerGender;
         public static string PlayerCharacter;
         public static string You;
+        public static string Stats;
         public static double Time;
         public static string O_Clock = " o'clock";
         public static string FullTime;
@@ -129,6 +130,10 @@ namespace Story
         }
         public static void Decision2M()
         {
+            Console.WriteLine("type 1 to: Go downstairs and check your fridge for something to eat (requires 5 minutes)");
+            Console.WriteLine("type 2 to: Check your stats");
+            Console.WriteLine("");
+
             Decision2 = Convert.ToInt32(Console.ReadLine());
             if (Decision2 == 1)
             {
@@ -138,10 +143,20 @@ namespace Story
             }
             else if (Decision2 == 2)
             {
-                Console.WriteLine(Stats);
+                Decision2O();
             }
         }
-
+        public static void Decision2O()
+        {
+            if (Decision2 == 2)
+            {
+                Console.WriteLine("");
+                Console.WriteLine(Stats);
+                Console.WriteLine("");
+                Console.WriteLine("What would you like to do now?");
+                Decision2M();
+            }
+        }
         public static void FemaleCharacters(string Kimberly = "Kimberly", string Anna = "Anna", string Laura = "Laura")
         {
             Console.WriteLine("");
@@ -275,7 +290,7 @@ namespace Story
             }
             Money = 20;
             You = PlayerCharacter;
-            string Stats = "Stats:\nYour hunger is at: " + Hunger + "\nYou have " + Money + " dollars\nIt's " + FullTime;
+            Stats = "Stats:\nYour hunger is at: " + Hunger + "\nYou have " + Money + " dollars\nIt's " + FullTime;
 
             BREAK();
             Console.WriteLine(You + " wakes up in his bed at " + Time + " AM " + ", feeling hungry");
@@ -284,21 +299,8 @@ namespace Story
             BREAK();
             Console.WriteLine("What would you like to do?");
             Console.WriteLine("");
-            Console.WriteLine("type 1 to: Go downstairs and check your fridge for something to eat (requires 5 minutes)");
-            Console.WriteLine("type 2 to: Check your stats");
-            Console.WriteLine("");
 
-            Decision2 = Convert.ToInt32(Console.ReadLine());
-            if (Decision2 == 1)
-            {
-                Console.WriteLine("Five minutes pass");
-                Console.WriteLine("You go downstairs and check your fridge, it contains: ");
-                FridgeDayOne();
-            }
-            else if (Decision2 == 2)
-            {
-                Console.WriteLine(Stats);
-            }
+            Decision2M();
         }
         public static void Food()
         {
@@ -377,6 +379,7 @@ namespace Story
                 }
                 Console.WriteLine(Time);
                 Console.WriteLine();
+                Console.WriteLine("Would you like to eat anything else?"); // THING I'M CURRENTLY WORKING ON
                 foreach (string food in Fridge)
                 {
                     Console.WriteLine(food);
