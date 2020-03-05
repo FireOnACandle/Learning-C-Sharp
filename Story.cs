@@ -377,9 +377,7 @@ namespace Story
                     Console.WriteLine("");
                     Console.WriteLine("You ate the Apple.");
                 }
-                Console.WriteLine(Time);
-                Console.WriteLine();
-                Console.WriteLine("Would you like to eat anything else?"); // THING I'M CURRENTLY WORKING ON
+
                 foreach (string food in Fridge)
                 {
                     Console.WriteLine(food);
@@ -388,19 +386,51 @@ namespace Story
             else if (PlayerCharacter is "Mark")
             {
                 Fridge.Add(SourpatchIceCream);
+                Fridge.Add(RedApple);
+                Fridge.Add(Bread);
                 foreach (string food in Fridge)
                 {
                     Console.WriteLine(food);
+                }
+
+                Eat = Console.ReadLine();
+                if (Eat is "Sourpatch Ice Cream")
+                {
+                    Fridge.Remove(SourpatchIceCream);
+                    Hunger = Hunger + 3;
+                    Time = Time + 0.10D;
+                    Console.WriteLine();
+                    Console.WriteLine("You ate the Sourpatch Ice Cream.");
+                }
+                else if (Eat is "Red Apple") 
+                {
+                    Fridge.Remove(RedApple);
+                    Hunger = Hunger + 1;
+                    Time = Time + 0.05D;
+                    Console.WriteLine();
+                    Console.WriteLine("You ate the Red Apple.");
+                }
+                else if (Eat is "Bread")
+                {
+                    Fridge.Remove(Bread);
+                    Hunger = Hunger + 2;
+                    Time = Time + 0.15D;
+                    Console.WriteLine("");
+                    Console.WriteLine("You ate the Bread.");
                 }
             }
             else if (PlayerCharacter is "Tim")
             {
                 Fridge.Add(RedApple);
+                Fridge.Add(Chocolate);
                 foreach (string food in Fridge)
                 {
                     Console.WriteLine(food);
                 }
             }
+            Console.WriteLine(Time);
+            Console.WriteLine();
+            Console.WriteLine("Would you like to eat anything else?"); // THING I'M CURRENTLY WORKING ON
         }
 
         public static void Main(string[] args)
