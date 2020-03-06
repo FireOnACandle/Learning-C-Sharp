@@ -8,7 +8,6 @@ namespace Story
 {
     public class Program
     {
-
         public static string PlayerGender;
         public static string PlayerCharacter;
         public static string You;
@@ -19,7 +18,7 @@ namespace Story
         public static string Decision1;
         public static int Decision2;
         public static List<string> Fridge = new List<string>();
-        public static string Pizza = "Pizza (Restores 3 Hunger (requires 30 minutes)", Bread = "Restores 2 Hunger (requires 15 minutes)", RedApple = "Restores 1 Hunger (requires 5 minutes)", GreenApple = "Restores 1 Hunger (requires 5 minutes)", SourpatchIceCream = "Restores 2 Hunger (requires 10 minutes)", Chocolate = "Restores 1 Hunger (requires 5 minutes)", Pineapple = "Restores 2 Hunger (requires 15 minutes)", Starfruit = "Restores 1 Hunger (requires 15 minutes)", Fries = "Restores 2 Hunger (requires 25 minutes";
+        public static string Pizza = "Pizza (Restores 3 Hunger, requires 30 minutes)", Bread = "Bread (Restores 2 Hunger, requires 15 minutes)", RedApple = "Red Apple (Restores 1 Hunger, requires 5 minutes)", GreenApple = "Green Apple (Restores 1 Hunger, requires 5 minutes)", SourpatchIceCream = "Restores 2 Hunger (requires 10 minutes)", Chocolate = "Chocolate (restores 1 Hunger, requires 5 minutes)", Pineapple = "Pineapple (Restores 2 Hunger, requires 15 minutes)", Starfruit = "Starfruit (Restores 1 Hunger, requires 15 minutes)", Fries = "Fries (Restores 2 Hunger, requires 25 minutes)";
         public static string Eat;
         public static int Hunger;
         public static double Money;
@@ -30,6 +29,7 @@ namespace Story
         }
         public static void ChoosingCharacter(string Male = "Male", string Female = "Female")
         {
+            Console.WriteLine("THE INPUTS IN THIS GAME ARE CASE SENSITIVE, PLEASE KEEP THAT IN MIND");
             Console.WriteLine("");
             Console.WriteLine("Choose your gender:");
             Console.WriteLine("Male or Female?");
@@ -337,101 +337,111 @@ namespace Story
                     break;
             }
         }
-        public static void FridgeDayOne()
+        public static void EatMethod()
         {
-            Time = Time + 0.05;
             Food();
-            if (PlayerCharacter is "Paul")
+            Console.WriteLine("");
+            Console.WriteLine("What do you want to eat?");
+            Eat = Console.ReadLine();
+            switch (Eat)
             {
-                Fridge.Add(Pizza);
-                Fridge.Add(RedApple);
-                Fridge.Add(Bread);
-                foreach (string food in Fridge)
-                {
-                    Console.WriteLine(food);
-                }
-                Console.WriteLine("");
-                Console.WriteLine("What do you want to eat?");
-                Eat = Console.ReadLine();
-                if (Eat is "Pizza")
-                {
+                case "Pizza":
                     Fridge.Remove(Pizza);
                     Hunger = Hunger + 4;
                     Time = Time + 0.30D;
                     Console.WriteLine("");
                     Console.WriteLine("You ate the Pizza.");
-                }
-                else if (Eat is "Bread")
-                {
+                    break;
+
+                case "Bread":
                     Fridge.Remove(Bread);
                     Hunger = Hunger + 2;
                     Time = Time + 0.15D;
                     Console.WriteLine("");
                     Console.WriteLine("You ate the Bread.");
-                }
-                else if (Eat is "Red Apple")
-                {
-                    Fridge.Remove(RedApple);
-                    Hunger = Hunger + 1;
-                    Time = Time + 0.05D;
-                    Console.WriteLine("");
-                    Console.WriteLine("You ate the Apple.");
-                }
+                    break;
 
-                foreach (string food in Fridge)
-                {
-                    Console.WriteLine(food);
-                }
-            }
-            else if (PlayerCharacter is "Mark")
-            {
-                Fridge.Add(SourpatchIceCream);
-                Fridge.Add(RedApple);
-                Fridge.Add(Bread);
-                foreach (string food in Fridge)
-                {
-                    Console.WriteLine(food);
-                }
-
-                Eat = Console.ReadLine();
-                if (Eat is "Sourpatch Ice Cream")
-                {
+                case "Sourpatch Ice Cream":
                     Fridge.Remove(SourpatchIceCream);
                     Hunger = Hunger + 3;
                     Time = Time + 0.10D;
                     Console.WriteLine();
                     Console.WriteLine("You ate the Sourpatch Ice Cream.");
-                }
-                else if (Eat is "Red Apple") 
-                {
+                    break;
+
+                case "Red Apple":
                     Fridge.Remove(RedApple);
                     Hunger = Hunger + 1;
                     Time = Time + 0.05D;
+                    Console.WriteLine("");
+                    Console.WriteLine("You ate the Apple.");
+                    break;
+
+                case "Chocolate":
+                    Fridge.Remove(Chocolate);
+                    Hunger = Hunger + 1;
+                    Time = Time + 0.05D;
                     Console.WriteLine();
-                    Console.WriteLine("You ate the Red Apple.");
-                }
-                else if (Eat is "Bread")
-                {
-                    Fridge.Remove(Bread);
+                    Console.WriteLine("You ate the Chocolate");
+                    break;
+
+                case "Pineapple":
+                    Fridge.Remove(Pineapple);
                     Hunger = Hunger + 2;
                     Time = Time + 0.15D;
-                    Console.WriteLine("");
-                    Console.WriteLine("You ate the Bread.");
-                }
+                    Console.WriteLine();
+                    Console.WriteLine("You ate the Pineapple");
+                    break;
+
+                case "Starfruit":
+                    Fridge.Remove(Starfruit);
+                    Hunger = Hunger + 1;
+                    Time = Time + 0.10D;
+                    Console.WriteLine();
+                    Console.WriteLine("You ate the Starfruit");
+                    break;
+
+                case "Green Apple":
+                    Fridge.Remove(GreenApple);
+                    Hunger = Hunger + 1;
+                    Time = Time + 0.05D;
+                    Console.WriteLine();
+                    Console.WriteLine("You ate the Green Apple");
+                    break;
+
+                case "Fries":
+                    Fridge.Remove(Fries);
+                    Hunger = Hunger + 2;
+                    Time = Time + 0.20D;
+                    Console.WriteLine();
+                    Console.WriteLine("You ate the Fries");
+                    break;
+
+                case "back":
+
+                    break;
             }
-            else if (PlayerCharacter is "Tim")
-            {
-                Fridge.Add(RedApple);
-                Fridge.Add(Chocolate);
-                foreach (string food in Fridge)
-                {
-                    Console.WriteLine(food);
-                }
-            }
-            Console.WriteLine(Time);
-            Console.WriteLine();
-            Console.WriteLine("Would you like to eat anything else?"); // THING I'M CURRENTLY WORKING ON
         }
+
+        public static void FridgeDayOne()
+                {
+                    Time = Time + 0.05;
+                    Food();
+                    if (PlayerCharacter is "Paul")
+                    {
+                        Fridge.Add(Pizza);
+                        Fridge.Add(RedApple);
+                        Fridge.Add(Bread);
+                        foreach (string food in Fridge)
+                        {
+                            Console.WriteLine(food);
+                        }
+                        EatMethod();
+                        Console.WriteLine(Time);
+                        Console.WriteLine();
+                        Console.WriteLine("Would you like to eat anything else?"); // THING I'M CURRENTLY WORKING ON
+                    }
+                }
 
         public static void Main(string[] args)
         {
