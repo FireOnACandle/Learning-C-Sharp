@@ -351,6 +351,14 @@ namespace Story
                     Time = Time + 0.30D;
                     Console.WriteLine("");
                     Console.WriteLine("You ate the Pizza.");
+                    if (PlayerCharacter is "Paul")
+                    {
+                        Hunger++;
+                    }
+                    else if (PlayerCharacter is "Anna")
+                    {
+                        Hunger++;
+                    }
                     break;
 
                 case "Bread":
@@ -367,6 +375,10 @@ namespace Story
                     Time = Time + 0.10D;
                     Console.WriteLine();
                     Console.WriteLine("You ate the Sourpatch Ice Cream.");
+                    if (PlayerCharacter is "Mark")
+                    {
+                        Hunger++;
+                    }
                     break;
 
                 case "Red Apple":
@@ -375,6 +387,14 @@ namespace Story
                     Time = Time + 0.05D;
                     Console.WriteLine("");
                     Console.WriteLine("You ate the Apple.");
+                    if (PlayerCharacter is "Tim")
+                    {
+                        Hunger++;
+                    }
+                    else if (PlayerCharacter is "Kimberly")
+                    {
+                        Hunger++;
+                    }
                     break;
 
                 case "Chocolate":
@@ -383,6 +403,14 @@ namespace Story
                     Time = Time + 0.05D;
                     Console.WriteLine();
                     Console.WriteLine("You ate the Chocolate");
+                    if (PlayerCharacter is "Tim")
+                    {
+                        Hunger++;
+                    }
+                    else if (PlayerCharacter is "Kimberly")
+                    {
+                        Hunger++;
+                    }
                     break;
 
                 case "Pineapple":
@@ -391,6 +419,10 @@ namespace Story
                     Time = Time + 0.15D;
                     Console.WriteLine();
                     Console.WriteLine("You ate the Pineapple");
+                    if (PlayerCharacter is "Laura")
+                    {
+                        Hunger++;
+                    }
                     break;
 
                 case "Starfruit":
@@ -399,6 +431,10 @@ namespace Story
                     Time = Time + 0.10D;
                     Console.WriteLine();
                     Console.WriteLine("You ate the Starfruit");
+                    if (PlayerCharacter is "Laura")
+                    {
+                        Hunger++;
+                    }
                     break;
 
                 case "Green Apple":
@@ -407,6 +443,10 @@ namespace Story
                     Time = Time + 0.05D;
                     Console.WriteLine();
                     Console.WriteLine("You ate the Green Apple");
+                    if (PlayerCharacter is "Mark")
+                    {
+                        Hunger++;
+                    }
                     break;
 
                 case "Fries":
@@ -415,10 +455,18 @@ namespace Story
                     Time = Time + 0.20D;
                     Console.WriteLine();
                     Console.WriteLine("You ate the Fries");
+                    if (PlayerCharacter is "Paul")
+                    {
+                        Hunger++;
+                    }
+                    else if (PlayerCharacter is "Anna") 
+                    {
+                        Hunger++;
+                    }
                     break;
 
-                case "back":
-
+                default:
+                    EatMethod();
                     break;
             }
         }
@@ -438,6 +486,7 @@ namespace Story
                         }
                         EatMethod();
                         Console.WriteLine(Time);
+                Console.WriteLine("Now your Hunger is at: " + Hunger);
                         Console.WriteLine();
                         Console.WriteLine("Would you like to eat anything else?"); // THING I'M CURRENTLY WORKING ON
                     }
@@ -450,5 +499,3 @@ namespace Story
         }
     }
 }
-
-
