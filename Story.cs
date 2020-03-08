@@ -17,9 +17,10 @@ namespace Story
         public static string FullTime;
         public static string Decision1;
         public static int Decision2;
-        public static List<string> Fridge = new List<string>();
+        public static List<string> Fridge = new List<string>(6);
         public static string Pizza = "Pizza (Restores 3 Hunger, requires 30 minutes)", Bread = "Bread (Restores 2 Hunger, requires 15 minutes)", RedApple = "Red Apple (Restores 1 Hunger, requires 5 minutes)", GreenApple = "Green Apple (Restores 1 Hunger, requires 5 minutes)", SourpatchIceCream = "Restores 2 Hunger (requires 10 minutes)", Chocolate = "Chocolate (restores 1 Hunger, requires 5 minutes)", Pineapple = "Pineapple (Restores 2 Hunger, requires 15 minutes)", Starfruit = "Starfruit (Restores 1 Hunger, requires 15 minutes)", Fries = "Fries (Restores 2 Hunger, requires 25 minutes)";
         public static string Eat;
+        public static string EatMore;
         public static int Hunger;
         public static double Money;
 
@@ -470,29 +471,91 @@ namespace Story
                     break;
             }
         }
+        public static void EatMoreMethod()
+        {
+            EatMore = Console.ReadLine();
+
+            if (EatMore is "Yes")
+            {
+                FridgeDayOne();
+            }
+        }
 
         public static void FridgeDayOne()
                 {
                     Time = Time + 0.05;
                     Food();
-                    if (PlayerCharacter is "Paul")
+                    switch (PlayerCharacter)
+            {
+                case "Paul":
+                    Fridge.Add(Pizza);
+                    Fridge.Add(RedApple);
+                    Fridge.Add(Bread);
+                    foreach (string food in Fridge)
                     {
-                        Fridge.Add(Pizza);
-                        Fridge.Add(RedApple);
-                        Fridge.Add(Bread);
-                        foreach (string food in Fridge)
-                        {
-                            Console.WriteLine(food);
-                        }
+                         Console.WriteLine(food);
+                    }
+                    break;
+
+                case "Mark":
+                    Fridge.Add(SourpatchIceCream);
+                    Fridge.Add(GreenApple);
+                    Fridge.Add(Chocolate);
+                    foreach (string food in Fridge)
+                    {
+                        Console.WriteLine(food);
+                    }
+                    break;
+
+                case "Tim":
+                    Fridge.Add(Chocolate);
+                    Fridge.Add(RedApple);
+                    Fridge.Add(Bread);
+                    foreach (string food in Fridge)
+                    {
+                        Console.WriteLine(food);
+                    }
+                    break;
+
+                case "Kimberly":
+                    Fridge.Add(RedApple);
+                    Fridge.Add(Bread);
+                    Fridge.Add(Chocolate);
+                    foreach (string food in Fridge)
+                    {
+                        Console.WriteLine(food);
+                    }
+                    break;
+
+                case "Anna":
+                    Fridge.Add(Bread);
+                    Fridge.Add(Pizza);
+                    Fridge.Add(GreenApple);
+                    foreach (string food in Fridge)
+                    {
+                        Console.WriteLine(food);
+                    }
+                    break;
+
+                case "Laura":
+                    Fridge.Add(Pineapple);
+                    Fridge.Add(Starfruit);
+                    Fridge.Add(Chocolate);
+                    foreach (string food in Fridge)
+                    {
+                        Console.WriteLine(food);
+                    }
+                    break;
+        }
                         EatMethod();
                         Console.WriteLine(Time);
                 Console.WriteLine("Now your Hunger is at: " + Hunger);
                         Console.WriteLine();
-                        Console.WriteLine("Would you like to eat anything else?"); // THING I'M CURRENTLY WORKING ON
+                        Console.WriteLine("Would you like to eat anything else? (type Yes or No)"); // THING I'M CURRENTLY WORKING ON
+                        EatMoreMethod();
                     }
-                }
 
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             ChoosingCharacter();
             DayOne();
