@@ -556,7 +556,150 @@ namespace Story
                     break;
 
                 default:
-                    EatMethod();
+                    EatMethod2();
+                    break;
+            }
+            EatDone();
+
+            if (EatMore is "Yes")
+            {
+                EatMoreMethod();
+            }
+            else if (EatMore is "No")
+            {
+                Console.WriteLine("Alright then");
+                Console.Clear();
+                Console.WriteLine("After " + PlayerCharacter + " had a good breakfast, the thought about what to do");
+            }
+        }
+        public static void EatMethod2()
+        {
+            Eat = Console.ReadLine();
+            Console.WriteLine();
+            switch (Eat)
+            {
+                case "Pizza":
+                    Fridge.Remove(Pizza);
+                    Hunger = Hunger + 4;
+                    Time = Time + 0.30D;
+                    Console.WriteLine("");
+                    Console.WriteLine("You ate the Pizza.");
+                    if (PlayerCharacter is "Paul")
+                    {
+                        Hunger++;
+                    }
+                    else if (PlayerCharacter is "Anna")
+                    {
+                        Hunger++;
+                    }
+                    break;
+
+                case "Bread":
+                    Fridge.Remove(Bread);
+                    Hunger = Hunger + 2;
+                    Time = Time + 0.15D;
+                    Console.WriteLine("");
+                    Console.WriteLine("You ate the Bread.");
+                    break;
+
+                case "Sourpatch Ice Cream":
+                    Fridge.Remove(SourpatchIceCream);
+                    Hunger = Hunger + 3;
+                    Time = Time + 0.10D;
+                    Console.WriteLine();
+                    Console.WriteLine("You ate the Sourpatch Ice Cream.");
+                    if (PlayerCharacter is "Mark")
+                    {
+                        Hunger++;
+                    }
+                    break;
+
+                case "Red Apple":
+                    Fridge.Remove(RedApple);
+                    Hunger = Hunger + 1;
+                    Time = Time + 0.05D;
+                    Console.WriteLine("");
+                    Console.WriteLine("You ate the Apple.");
+                    if (PlayerCharacter is "Tim")
+                    {
+                        Hunger++;
+                    }
+                    else if (PlayerCharacter is "Kimberly")
+                    {
+                        Hunger++;
+                    }
+                    break;
+
+                case "Chocolate":
+                    Fridge.Remove(Chocolate);
+                    Hunger = Hunger + 1;
+                    Time = Time + 0.05D;
+                    Console.WriteLine();
+                    Console.WriteLine("You ate the Chocolate");
+                    if (PlayerCharacter is "Tim")
+                    {
+                        Hunger++;
+                    }
+                    else if (PlayerCharacter is "Kimberly")
+                    {
+                        Hunger++;
+                    }
+                    break;
+
+                case "Pineapple":
+                    Fridge.Remove(Pineapple);
+                    Hunger = Hunger + 2;
+                    Time = Time + 0.15D;
+                    Console.WriteLine();
+                    Console.WriteLine("You ate the Pineapple");
+                    if (PlayerCharacter is "Laura")
+                    {
+                        Hunger++;
+                    }
+                    break;
+
+                case "Starfruit":
+                    Fridge.Remove(Starfruit);
+                    Hunger = Hunger + 1;
+                    Time = Time + 0.10D;
+                    Console.WriteLine();
+                    Console.WriteLine("You ate the Starfruit");
+                    if (PlayerCharacter is "Laura")
+                    {
+                        Hunger++;
+                    }
+                    break;
+
+                case "Green Apple":
+                    Fridge.Remove(GreenApple);
+                    Hunger = Hunger + 1;
+                    Time = Time + 0.05D;
+                    Console.WriteLine();
+                    Console.WriteLine("You ate the Green Apple");
+                    if (PlayerCharacter is "Mark")
+                    {
+                        Hunger++;
+                    }
+                    break;
+
+                case "Fries":
+                    Fridge.Remove(Fries);
+                    Hunger = Hunger + 2;
+                    Time = Time + 0.20D;
+                    Console.WriteLine();
+                    Console.WriteLine("You ate the Fries");
+                    if (PlayerCharacter is "Paul")
+                    {
+                        Hunger++;
+                    }
+                    else if (PlayerCharacter is "Anna")
+                    {
+                        Hunger++;
+                    }
+                    break;
+
+                default:
+                    EatMethod2();
                     break;
             }
             EatDone();
@@ -705,7 +848,7 @@ namespace Story
                         break;
 
                     default:
-                        EatMethod();
+                        EatMethod2();
                         break;
                 }
                 EatDone();
